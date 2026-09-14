@@ -195,7 +195,7 @@ internal class SimDevice
             ("1.3.6.1.2.1.25.3.2.1.5.1", EncInt(NoPaper || Jam ? 3 : 2)),
             ("1.3.6.1.2.1.25.3.5.1.1.1", EncInt(NoPaper || Jam ? 4 : 3)),
             ("1.3.6.1.2.1.25.3.5.1.2.1", Tlv(0x04, new[] { errByte })),
-            ("1.3.6.1.2.1.43.10.2.1.3.1", EncCounter(987654 + Port)),
+            ("1.3.6.1.2.1.43.10.2.1.4.1.1", EncCounter(987654 + Port)),
             ("1.3.6.1.2.1.43.5.1.1.17.1", EncOctet($"SIMSERIAL-{Port}"))
         };
 

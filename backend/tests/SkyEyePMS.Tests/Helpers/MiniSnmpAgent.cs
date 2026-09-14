@@ -223,7 +223,7 @@ public sealed class MiniSnmpAgent : IDisposable
             ai++;
         }
 
-        Add("1.3.6.1.2.1.43.10.2.1.3.1", EncCounter(Device.PageCount));
+        Add("1.3.6.1.2.1.43.10.2.1.4.1.1", EncCounter(Device.PageCount));
         return mib;
     }
 

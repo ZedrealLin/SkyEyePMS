@@ -14,7 +14,7 @@ public static class SnmpOids
     public static readonly ObjectIdentifier HrPrinterDetectedErrorState = new("1.3.6.1.2.1.25.3.5.1.2");
 
     // Printer MIB
-    public static readonly ObjectIdentifier PrtMarkerLifeCount = new("1.3.6.1.2.1.43.10.2.1.3"); // 列：prtMarkerLifeCount
+    public static readonly ObjectIdentifier PrtMarkerLifeCount = new("1.3.6.1.2.1.43.10.2.1.4"); // 列：prtMarkerLifeCount（RFC 3805 prtMarkerEntry 第 4 列；实例 .4.1.1）
     /// <summary>设备序列号（prtGeneralTable 第 1 行，资产台账用）</summary>
     public static readonly ObjectIdentifier PrtGeneralSerialNumber = new("1.3.6.1.2.1.43.5.1.1.17.1");
 
