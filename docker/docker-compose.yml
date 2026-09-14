@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: skyeyepms-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: change-root-password
+      MYSQL_DATABASE: skyeyepms
+      MYSQL_USER: skyeye
+      MYSQL_PASSWORD: change-db-password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-pchange-root-password"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: skyeyepms-app
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      Database__Provider: mysql
+      Database__ConnectionString: Server=mysql;Port=3306;Database=skyeyepms;User ID=skyeye;Password=change-db-password;CharSet=utf8mb4;
+      # ↓↓↓ 生产环境务必改成随机长文本，并通过 secrets/环境变量注入 ↓↓↓
+      Security__EncryptionKey: change-me-random-text-for-field-encryption
+      Jwt__SecretKey: change-me-at-least-32-chars-random-text!!
+      Seed__AdminPassword: change-admin-password
+      Polling__IntervalMinutes: 2
+      Polling__Concurrency: 20
+
+volumes:
+  mysql-data:

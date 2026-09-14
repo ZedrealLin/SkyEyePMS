@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SkyEyePMS.Api/SkyEyePMS.Api.csproj" />
+    <Project Path="src/SkyEyePMS.Core/SkyEyePMS.Core.csproj" />
+    <Project Path="src/SkyEyePMS.Infrastructure/SkyEyePMS.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SkyEyePMS.Tests/SkyEyePMS.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/SkyEyePMS.SnmpSim/SkyEyePMS.SnmpSim.csproj" />
+  </Folder>
+</Solution>
